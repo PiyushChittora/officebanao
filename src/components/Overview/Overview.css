@@ -1,0 +1,27 @@
+.tabcontainer {
+    margin-left: 2em;
+    margin-right: 2em;
+    display: flex;
+}
+.tab{
+    font-size: 1em;
+    padding: 1em;
+    width: 20vw;
+    text-align: center;
+}
+button{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+#overviewtab{
+    border-bottom: 2px solid black;
+}
+#othertab{
+    color: lightgrey;
+    border-bottom: 2px solid lightgrey;
+}
+.bold{
+    font-weight: 600;
+  }
