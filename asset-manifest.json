@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/officebanao/static/css/main.7c41b28e.css",
+    "main.css": "/officebanao/static/css/main.653c72da.css",
     "main.js": "/officebanao/static/js/main.e3253e35.js",
     "static/js/787.35f867b1.chunk.js": "/officebanao/static/js/787.35f867b1.chunk.js",
     "index.html": "/officebanao/index.html",
@@ -10,12 +10,12 @@
     "static/media/downarrow.svg": "/officebanao/static/media/downarrow.9bd26ca46d9dec944a9ab9c51e57b1d4.svg",
     "static/media/uparrow.svg": "/officebanao/static/media/uparrow.210985f6c1d2eeb44f834a3b70842c7d.svg",
     "static/media/minus.svg": "/officebanao/static/media/minus.a14e620dc683c60e21617258f15d2dab.svg",
-    "main.7c41b28e.css.map": "/officebanao/static/css/main.7c41b28e.css.map",
+    "main.653c72da.css.map": "/officebanao/static/css/main.653c72da.css.map",
     "main.e3253e35.js.map": "/officebanao/static/js/main.e3253e35.js.map",
     "787.35f867b1.chunk.js.map": "/officebanao/static/js/787.35f867b1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7c41b28e.css",
+    "static/css/main.653c72da.css",
     "static/js/main.e3253e35.js"
   ]
 }
