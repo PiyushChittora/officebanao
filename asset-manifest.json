@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/officebanao/static/css/main.af6ed08c.css",
-    "main.js": "/officebanao/static/js/main.c2a97aea.js",
+    "main.css": "/officebanao/static/css/main.532ab0a7.css",
+    "main.js": "/officebanao/static/js/main.018d18e3.js",
     "static/js/787.35f867b1.chunk.js": "/officebanao/static/js/787.35f867b1.chunk.js",
     "index.html": "/officebanao/index.html",
     "static/media/plus.svg": "/officebanao/static/media/plus.291338fe65e5850a169fe6357a778354.svg",
@@ -10,12 +10,12 @@
     "static/media/downarrow.svg": "/officebanao/static/media/downarrow.9bd26ca46d9dec944a9ab9c51e57b1d4.svg",
     "static/media/uparrow.svg": "/officebanao/static/media/uparrow.210985f6c1d2eeb44f834a3b70842c7d.svg",
     "static/media/minus.svg": "/officebanao/static/media/minus.a14e620dc683c60e21617258f15d2dab.svg",
-    "main.af6ed08c.css.map": "/officebanao/static/css/main.af6ed08c.css.map",
-    "main.c2a97aea.js.map": "/officebanao/static/js/main.c2a97aea.js.map",
+    "main.532ab0a7.css.map": "/officebanao/static/css/main.532ab0a7.css.map",
+    "main.018d18e3.js.map": "/officebanao/static/js/main.018d18e3.js.map",
     "787.35f867b1.chunk.js.map": "/officebanao/static/js/787.35f867b1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.af6ed08c.css",
-    "static/js/main.c2a97aea.js"
+    "static/css/main.532ab0a7.css",
+    "static/js/main.018d18e3.js"
   ]
 }
