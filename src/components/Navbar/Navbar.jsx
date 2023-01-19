@@ -24,7 +24,7 @@ export default function navbar() {
             <div className="topicname bold">Create Workorder</div>
           </div>
           <div
-            className="savebtn"
+            className="savebtn btn"
             onClick={() => {
               setissidebaropen(true);
             }}

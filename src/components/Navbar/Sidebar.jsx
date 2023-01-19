@@ -1,13 +1,80 @@
-import React from "react";
+import { React, useState } from "react";
+
 import "./Sidebar.css";
 
 import cross from "../../Assets/cross.svg";
 
 export default function Sidebar(props) {
+  const submissionHandler = (e) => {
+    e.preventDefault();
+    var data = {
+      name: e.target[0].value,
+      DateOfCommencement: e.target[1].value,
+      DateOfCompletion: e.target[2].value,
+      RFQCode: e.target[3].value,
+    };
+    console.log(data);
+  };
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const isDate = (inputText) => {
+    var dateformat =/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+
+    if (inputText.match(dateformat)) {
+      // document.form1.text1.focus();
+
+      var opera1 = inputText.split("/");
+      var lopera1 = opera1.length;
+      var pdate;
+      if (lopera1 > 1) {
+        pdate = inputText.split("/");
+      }
+      var dd = parseInt(pdate[0]);
+      var mm = parseInt(pdate[1]);
+      var yy = parseInt(pdate[2]);
+
+      var ListofDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+      if (mm == 1 || mm > 2) {
+        if (dd > ListofDays[mm - 1]) {
+          return false;
+        }
+        else{
+          return true;
+        }
+      }
+      if (mm == 2) {
+        var lyear = false;
+        if ((!(yy % 4) && yy % 100) || !(yy % 400)) {
+          lyear = true;
+        }
+        if (lyear == false && dd >= 29) {
+          return false;
+        }
+        else if (lyear == true && dd > 29) {
+          return false;
+        }
+        else{
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+  const validateDate = (value) => {
+    console.log(value);
+    if (isDate(value)) {
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Enter Valid Date!");
+    }
+  };
+
   return (
     <>
       <form
         className={`sidebarcontainer ${props.issidebaropen ? "" : "notactive"}`}
+        onSubmit={submissionHandler}
       >
         <div className="sidebar">
           <div className="sidenav">
@@ -48,7 +115,9 @@ export default function Sidebar(props) {
               className="dateinput"
               placeholder="dd/mm/yyyy"
               required
+              onChange={(e) => validateDate(e.target.value)}
             />
+            <div className="errormessage">{errorMessage}</div>
           </div>
 
           <div className="dateOfCompletion content">
@@ -59,7 +128,9 @@ export default function Sidebar(props) {
               className="dateinput"
               placeholder="dd/mm/yyyy"
               required
+              onChange={(e) => validateDate(e.target.value)}
             />
+            <div className="errormessage">{errorMessage}</div>
           </div>
 
           <div className="RFQcode content">
@@ -74,7 +145,7 @@ export default function Sidebar(props) {
           </div>
         </div>
 
-        <input type="submit" value="Done" className="donebtn" />
+        <input type="submit" value="Done" className="btn" />
       </form>
     </>
   );

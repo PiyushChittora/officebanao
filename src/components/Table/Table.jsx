@@ -7,25 +7,23 @@ import uparrow from "../../Assets/arrows/uparrow.svg";
 import downarrow from "../../Assets/arrows/downarrow.svg";
 
 import data from "../../Data/Tabledata";
+import Row from "./Row";
 
 export default function Table() {
   return (
     <>
       <div className="table">
-        <div className="header rowcontent">
-          <div className="checkandname">
-            <input
-              type="checkbox"
-              className="checkbox"
-              name="allcheckbox"
-            />
-            <div className="packages bold">Packages</div>
-          </div>
-          <div className="rate bold">
-            Rate <i>(in sqft)</i>
-          </div>
-          <div className="total bold">Total</div>
-          <div className="expander"></div>
+        <div className="header">
+          <Row
+            type="header"
+            name="Package"
+            rate={
+              <>
+                Rate <i>(in sqft)</i>
+              </>
+            }
+            total="Total"
+          />
         </div>
 
         {data.map((obj, indx) => {
@@ -37,24 +35,14 @@ export default function Table() {
           return (
             <div key={indx} className="row">
               <div className="civil">
-                <div className="rowcontent">
-                  <div className="checkandname">
-                    <input
-                      type="checkbox"
-                      className="checkbox"
-                      name="packagecheckbox"
-                    />
-                    <div className="packages bold">{obj.Package}</div>
-                  </div>
-                  <div className="rate">{obj.Rate}</div>
-                  <div className="total">₹ {obj.Total}</div>
-                  <button
-                    className="expander"
-                    onClick={Packageexpansionhandler}
-                  >
-                    <img src={ispackageopen ? minus : plus} />
-                  </button>
-                </div>
+                <Row
+                  type="civil"
+                  name={obj.Package}
+                  rate={obj.Rate}
+                  total={obj.Total}
+                  ispackageopen={ispackageopen}
+                  Packageexpansionhandler={Packageexpansionhandler}
+                />
 
                 {obj.Activity.map((act, indx) => {
                   const [isactivityopen, setisactivityopen] = useState(false);
@@ -67,46 +55,25 @@ export default function Table() {
                     <div key={indx} className="row">
                       {ispackageopen === true && (
                         <div className="activity">
-                          <div className="rowcontent">
-                            <div className="checkandname">
-                              <input
-                                type="checkbox"
-                                className="checkbox"
-                                id="activitycheckbox"
-                              />
-                              <div className="packages">{act.Package}</div>
-                            </div>
-                            <div className="rate">{act.Rate}</div>
-                            <div className="total">₹ {act.Total}</div>
-                            <button
-                              className="expander"
-                              onClick={activityexpansionhandler}
-                            >
-                              <img src={isactivityopen ? uparrow : downarrow} />
-                            </button>
-                          </div>
+                          <Row
+                            type="activity"
+                            name={act.Package}
+                            rate={act.Rate}
+                            total={act.Total}
+                            isactivityopen={isactivityopen}
+                            activityexpansionhandler={activityexpansionhandler}
+                          />
                           {act.workitem.map((work, indx) => {
                             return (
                               <div className="row">
                                 {isactivityopen === true && (
                                   <div key={indx} className="work">
-                                    <div className="rowcontent">
-                                      <div className="checkandname">
-                                        <input
-                                          type="checkbox"
-                                          className="checkbox"
-                                          id="workcheckbox"
-                                        />
-                                        <div className="packages">
-                                          {work.Package}
-                                        </div>
-                                      </div>
-                                      <div className="rate">{work.Rate}</div>
-                                      <div className="total">
-                                        ₹ {work.Total}
-                                      </div>
-                                      <div className="expander"></div>
-                                    </div>
+                                    <Row
+                                      type="work"
+                                      name={work.Package}
+                                      rate={work.Rate}
+                                      total={work.Total}
+                                    />
                                   </div>
                                 )}
                               </div>
