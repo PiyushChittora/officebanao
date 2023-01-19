@@ -16,19 +16,19 @@ export default function Sidebar(props) {
     console.log(data);
   };
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessageDateOfCommencement, setErrorMessageDateOfCommencement] = useState("");
+  const [errorMessageDateOfCompletion, setErrorMessageDateOfCompletion] = useState("");
 
   const isDate = (inputText) => {
     var dateformat =/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
 
-    if (inputText.match(dateformat)) {
-      // document.form1.text1.focus();
+    if (inputText.value.match(dateformat)) {
 
-      var opera1 = inputText.split("/");
+      var opera1 = inputText.value.split("/");
       var lopera1 = opera1.length;
       var pdate;
       if (lopera1 > 1) {
-        pdate = inputText.split("/");
+        pdate = inputText.value.split("/");
       }
       var dd = parseInt(pdate[0]);
       var mm = parseInt(pdate[1]);
@@ -64,9 +64,19 @@ export default function Sidebar(props) {
   const validateDate = (value) => {
     console.log(value);
     if (isDate(value)) {
-      setErrorMessage("");
+      if(value.name==="dateOfCommencement"){
+        setErrorMessageDateOfCommencement("");
+      }
+      else{
+        setErrorMessageDateOfCompletion("");
+      }
     } else {
-      setErrorMessage("Enter Valid Date!");
+      if(value.name==="dateOfCommencement"){
+        setErrorMessageDateOfCommencement("Enter Valid Date!");
+      }
+      else{
+        setErrorMessageDateOfCompletion("Enter Valid Date!");
+      }
     }
   };
 
@@ -115,9 +125,9 @@ export default function Sidebar(props) {
               className="dateinput"
               placeholder="dd/mm/yyyy"
               required
-              onChange={(e) => validateDate(e.target.value)}
+              onChange={(e) => validateDate(e.target)}
             />
-            <div className="errormessage">{errorMessage}</div>
+            <div className="errormessage">{errorMessageDateOfCommencement}</div>
           </div>
 
           <div className="dateOfCompletion content">
@@ -128,9 +138,9 @@ export default function Sidebar(props) {
               className="dateinput"
               placeholder="dd/mm/yyyy"
               required
-              onChange={(e) => validateDate(e.target.value)}
+              onChange={(e) => validateDate(e.target)}
             />
-            <div className="errormessage">{errorMessage}</div>
+            <div className="errormessage">{errorMessageDateOfCompletion}</div>
           </div>
 
           <div className="RFQcode content">
@@ -145,7 +155,7 @@ export default function Sidebar(props) {
           </div>
         </div>
 
-        <input type="submit" value="Done" className="btn" />
+        <input type="submit" value="Done" className="donebtn btn" />
       </form>
     </>
   );
